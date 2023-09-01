@@ -34,7 +34,7 @@ header {
 .header {
   display: flex;
   align-items: center;
-  gap: 2.6rem;  
+  gap: 2.6rem;
 }
 
 .logo {
@@ -134,6 +134,8 @@ aside {
   gap: 3.2rem;
 
   padding: 0 2.4rem 4rem;
+
+  animation: appear 2s ease-in;
 }
 
 aside .article-wrapper {
@@ -142,6 +144,9 @@ aside .article-wrapper {
   display: flex;
   align-items: center;
   gap: 1.6rem;
+
+  border-radius: 0.6rem;
+  background: var(--color-white);
 }
 
 .article-wrapper img {
@@ -198,7 +203,7 @@ footer {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-  
+
     margin-bottom: 3.2rem;
   }
 
@@ -210,4 +215,34 @@ footer {
   footer {
     grid-area: footer;
   }
+}
+
+/* Animações */
+/* Animação inicial: conteúdo secundário (artigos relacionados) surge depois pois não é o foco inicial*/
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+}
+
+/* Animações nos botões de avaliação para reforçar a ideia de positivo e negativo*/
+.thumbsup:hover {
+  transform: scale(1.1) rotate(-15deg);
+  background: green;
+
+  transition: 0.8s;
+}
+
+.thumbsdown:hover {
+  transform: scale(1.1) rotate(15deg);
+  background: red;
+
+  transition: 0.8s;
+}
+
+/* Animações sobre os artigos relacionados para realçar o foco no artigo que o usuário está interagindo. */
+.article-wrapper:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(1px 2px 2px var(--color-blue));
+  cursor: pointer;
 }
