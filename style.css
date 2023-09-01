@@ -1,10 +1,12 @@
 :root {
   font-size: 62.5%; /* 1rem = 10px */
 
+  animation: change-color 30s linear 0s infinite alternate;
+
   --color-white: #ffffff;
   --color-gray-500: #202024;
   --color-gray-900: #121214;
-  --color-blue: #065e7c;
+  --color-base: hsla(var(--hue), 91%, 25%, var(--alpha));
 }
 
 /* reset do CSS */
@@ -27,7 +29,7 @@ input {
 }
 
 header {
-  background: var(--color-blue);
+  background: var(--color-base);
   padding: 1.2rem 2.8rem;
 }
 
@@ -121,7 +123,7 @@ article .rating img {
   padding: 1.2rem;
   border-radius: 50%;
 
-  background: var(--color-blue);
+  background: var(--color-base);
 }
 
 article p {
@@ -165,7 +167,7 @@ aside .article-wrapper {
 }
 
 footer {
-  background: var(--color-blue);
+  background: var(--color-base);
   padding: 1.6rem;
 
   color: var(--color-white);
@@ -243,6 +245,17 @@ footer {
 /* Animações sobre os artigos relacionados para realçar o foco no artigo que o usuário está interagindo. */
 .article-wrapper:hover {
   transform: scale(1.05);
-  filter: drop-shadow(1px 2px 2px var(--color-blue));
+  filter: drop-shadow(1px 2px 2px var(--color-base));
   cursor: pointer;
+}
+
+@keyframes change-color {
+  0% {
+    --hue: 195;
+    --alpha: 1;
+  }
+  100% {
+    --hue: 310;
+    --alpha: 0.7;
+  }
 }
